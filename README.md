@@ -14,9 +14,9 @@ https://www.visualstudio.com/
 http://opencv.org/
 
 4.	Follow instructions to set the OpenCV environment variable here (http://docs.opencv.org/2.4/doc/tutorials/introduction/windows_install/windows_install.html#windowssetpathandenviromentvariable)		
-* Run Command Prompt as Administrator
-* setx -m OPENCV_DIR D:\OpenCV\build\x64\vc12 (change filepath)
-* Add the dlls_1.1 files to opencv\build\x64\vc12\bin
+	- Run Command Prompt as Administrator
+	- setx -m OPENCV_DIR D:\OpenCV\build\x64\vc12 (change filepath)
+	- Add the dlls_1.1 files to opencv\build\x64\vc12\bin
 
 5.	In Path Editor, Add a new path to opencv\build\bin and one to opencv\build\x64\vc12\bin
 a.	Restart computer
@@ -29,10 +29,10 @@ a.	Restart computer
 <h1>Data Preparation</h1>
 
 1.	Create master file for events for each session to run TAR on
-a.	Convert the timestamps to ss:ms (e.g. 101.5)
-b.	Create columns for each annotation, for each person (SD_Tutor, SD_Tutee, MC_Tutor, MC_Tutee, etc)
-c.	Each row is the start of an event, as in annotated utterance, or nonverbal behavior
-d.	1 for occurrence of annotation, 0 if not
+	- Convert the timestamps to ss:ms (e.g. 101.5)
+	- Create columns for each annotation, for each person (SD_Tutor, SD_Tutee, MC_Tutor, MC_Tutee, etc)
+	- Each row is the start of an event, as in annotated utterance, or nonverbal behavior
+	- 1 for occurrence of annotation, 0 if not
 
 2.	If applicable, select subset of columns to use (e.g. Tutoring-only or Social-only)
 
@@ -43,17 +43,17 @@ d.	1 for occurrence of annotation, 0 if not
 <h1>TITARL Setup</h1>
 
 1.	Create .evt file of events (annotated behaviors and rapport ratings every 30 seconds) from master files.
-a.	Using “create_evt.py”
+	- Using “create_evt.py”
 
 2.	Create an .sevt file for each combination of train set and test set, to use for cross-validation of the predictions.
-a.	Using “create_sevt.py”
-b.	With 6 total dyads of friends and 6 for strangers, we tried 4 dyads for train and 2 for test (15 friends and 15 strangers) and 5 train and 1 test (6 friends and 6 strangers)
+	- Using “create_sevt.py”
+	- With 6 total dyads of friends and 6 for strangers, we tried 4 dyads for train and 2 for test (15 friends and 15 strangers) and 5 train and 1 test (6 friends and 6 strangers)
 
 3.	Create config file for each set.
-a.	Using “create_config.py”
+	- Using “create_config.py”
 
 4.	Create “learn_rules.bat” file, using each .sevt and config file
-a.	Using “write_rules.py”
+	- Using “write_rules.py”
 
 
 
