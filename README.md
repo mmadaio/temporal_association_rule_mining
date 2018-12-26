@@ -1,5 +1,5 @@
 # temporal_association_rule_mining
-Some scripts used as part of the Temporal Association Rule mining process. Used to identify relationships between verbal tutoring and learning behaviors and the rapport between members of a dyad.
+Some scripts used to mine temporal association rules from event sequence data. Used in an educational data mining paper ([Madaio et al., 2017](http://educationaldatamining.org/EDM2017/proc_files/papers/paper_118.pdf)) to understand how students' collaborative learning behaviors are associated with the state of their relationship, or "rapport".
 
 
 <h1>Environment Setup</h1>
@@ -14,9 +14,9 @@ https://www.visualstudio.com/
 http://opencv.org/
 
 4.	Follow instructions to set the OpenCV environment variable here (http://docs.opencv.org/2.4/doc/tutorials/introduction/windows_install/windows_install.html#windowssetpathandenviromentvariable)		
-a.	Run Command Prompt as Administrator
-b.	setx -m OPENCV_DIR D:\OpenCV\build\x64\vc12 (change filepath)
-c.	Add the dlls_1.1 files to opencv\build\x64\vc12\bin
+* Run Command Prompt as Administrator
+* setx -m OPENCV_DIR D:\OpenCV\build\x64\vc12 (change filepath)
+* Add the dlls_1.1 files to opencv\build\x64\vc12\bin
 
 5.	In Path Editor, Add a new path to opencv\build\bin and one to opencv\build\x64\vc12\bin
 a.	Restart computer
@@ -28,7 +28,7 @@ a.	Restart computer
 
 <h1>Data Preparation</h1>
 
-1.	Create master file for annotations for each session to run TAR on
+1.	Create master file for events for each session to run TAR on
 a.	Convert the timestamps to ss:ms (e.g. 101.5)
 b.	Create columns for each annotation, for each person (SD_Tutor, SD_Tutee, MC_Tutor, MC_Tutee, etc)
 c.	Each row is the start of an event, as in annotated utterance, or nonverbal behavior
