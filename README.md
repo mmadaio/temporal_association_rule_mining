@@ -1,6 +1,8 @@
 # temporal_association_rule_mining
 Some scripts used to mine temporal association rules from event sequence data. Used in an educational data mining paper ([Madaio et al., 2017](http://educationaldatamining.org/EDM2017/proc_files/papers/paper_118.pdf)) to understand how students' collaborative learning behaviors are associated with the state of their relationship, or "rapport".
 
+NOTE: The scripts have not
+
 
 <h1>Environment Setup</h1>
 
@@ -99,6 +101,6 @@ a.	Restart computer
 	- And another using the direct output of the random forest from TITARL (fuse_output_[Relationship]_#.csv) and taking the majority vote of the final rapport value as the output. 
 
 4.	Alternatively, you could extract the rule details themselves to interpret the temporal sequences most associated with your outcome value (we did both the scalar value of rapport for each slice, and also the delta of that slice and the subsequent slice).
-	- Using “TAR_rule_extraction.py” to get:
+	- Using “rule_extraction.py” to get:
 		- A summary of the total number of rules for each of the outcome values (e.g. “Rapport_3”)
 		- The full rule sets for each model, with the rapport values, temporal sequence (e.g. “Tutee_Answer, Tutor_Praise, Tutee_Norm_Violation”), their confidence, support, number of uses, etc.
