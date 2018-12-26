@@ -1,8 +1,6 @@
 # temporal_association_rule_mining
 Some scripts used to mine temporal association rules from event sequence data. Used in an educational data mining paper ([Madaio et al., 2017](http://educationaldatamining.org/EDM2017/proc_files/papers/paper_118.pdf)) to understand how students' collaborative learning behaviors are associated with the state of their relationship, or "rapport".
 
-NOTE: The scripts have not
-
 
 <h1>Environment Setup</h1>
 
@@ -91,14 +89,13 @@ a.	Restart computer
 		- This will create an output file: “fuse_output_[Relationship]_#.csv"
 
 2.	You could use that fuse_output_[Relationship]_#.csv as input into regression or classification model
-	- Using “TAR_evaluation.py”
 	- Remove the “time” column
 	- Remove the “reference” and value of the scalar.Rapport.
 	- Compare evaluation measure (MSE, kappa, AUC, etc) between each of the rulesets generated from tutoring and social behavior against the models with rules generated from social only, or tutoring only, nonverbal only, etc.
 
-3.	For our EDM paper, we also evaluated our approach against two baselines:
+3.	For our EDM 2017 paper, we also evaluated our approach against two baselines:
 	- One using the 100+ annotated columns within each time slice as independent features in a regression / classification model
-	- And another using the direct output of the random forest from TITARL (fuse_output_[Relationship]_#.csv) and taking the majority vote of the final rapport value as the output. 
+	- And another using the direct output of the random forest from TITARL (fuse_output_[Relationship]_#.csv) and taking the majority vote of the final rapport value as the output. (`baseline_comparison.py`)
 
 4.	Alternatively, you could extract the rule details themselves to interpret the temporal sequences most associated with your outcome value (we did both the scalar value of rapport for each slice, and also the delta of that slice and the subsequent slice).
 	- Using “rule_extraction.py” to get:
