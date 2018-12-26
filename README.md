@@ -60,19 +60,19 @@ a.	Restart computer
 <h1>Running TITARL</h1>
 
 1.	In each model folder, make sure you have:
-a.	Config files (.xml)
-b.	.sevt files
-c.	.evt files
-d.	learn_rules.bat
+	- Config files (.xml)
+	- .sevt files
+	- .evt files
+	- learn_rules.bat
 
 2.	Run Titarl “learn_rules.bat”
-a.	Finds rules for each train set, create simple rules, prune, merge, refine, etc
-i.	Output will be “value_rules-[Relationship]#.xml”
-b.	Runs 7 random forest classifiers on using the rules generated from each train set to predict rapport in the test set
-i.	Output will be a “predictions.evt” file for each model.
+	- Finds rules for each train set, create simple rules, prune, merge, refine, etc
+		- Output will be “value_rules-[Relationship]#.xml”
+	- Runs 7 random forest classifiers on using the rules generated from each train set to predict rapport in the test set
+		- Output will be a “predictions.evt” file for each model.
 
 3.	Create “write_predictions.tit” 
-a.	Using “write_predictions.py”
+	- Using “write_predictions.py”
 
 4.	Run “write_predictions.tit” on each predictions.evt file to generate “fuse_output_[Relationship]_#.txt”
 
@@ -82,23 +82,23 @@ a.	Using “write_predictions.py”
 <h1>Use output predictions</h1>
 
 1.	Process those predictions
-a.	Using “Processing_predictions.java”
-b.	Make sure Java Environment Path is set up
-c.	Run javac Processing_predictions.java to get the Processing_predictions.class
-d.	Run java Processing_predictions.java
-i.	This will create an output file: “fuse_output_[Relationship]_#.csv"
+	- Using “Processing_predictions.java”
+	- Make sure Java Environment Path is set up
+	- Run javac Processing_predictions.java to get the Processing_predictions.class
+	- Run java Processing_predictions.java
+		- This will create an output file: “fuse_output_[Relationship]_#.csv"
 
 2.	You could use that fuse_output_[Relationship]_#.csv as input into regression or classification model
-a.	Using “TAR_evaluation.py”
-b.	Remove the “time” column
-c.	Remove the “reference” and value of the scalar.Rapport.
-d.	Compare evaluation measure (MSE, kappa, AUC, etc) between each of the rulesets generated from tutoring and social behavior against the models with rules generated from social only, or tutoring only, nonverbal only, etc.
+	- Using “TAR_evaluation.py”
+	- Remove the “time” column
+	- Remove the “reference” and value of the scalar.Rapport.
+	- Compare evaluation measure (MSE, kappa, AUC, etc) between each of the rulesets generated from tutoring and social behavior against the models with rules generated from social only, or tutoring only, nonverbal only, etc.
 
 3.	For our EDM paper, we also evaluated our approach against two baselines:
-a.	one using the 100+ annotated columns within each time slice as independent features in a regression / classification model
-b.	And another using the direct output of the random forest from TITARL (fuse_output_[Relationship]_#.csv) and taking the majority vote of the final rapport value as the output. 
+	- One using the 100+ annotated columns within each time slice as independent features in a regression / classification model
+	- And another using the direct output of the random forest from TITARL (fuse_output_[Relationship]_#.csv) and taking the majority vote of the final rapport value as the output. 
 
 4.	Alternatively, you could extract the rule details themselves to interpret the temporal sequences most associated with your outcome value (we did both the scalar value of rapport for each slice, and also the delta of that slice and the subsequent slice).
-a.	Using “TAR_rule_extraction.py” to get:
-i.	A summary of the total number of rules for each of the outcome values (e.g. “Rapport_3”)
-ii.	The full rule sets for each model, with the rapport values, temporal sequence (e.g. “Tutee_Answer, Tutor_Praise, Tutee_Norm_Violation”), their confidence, support, number of uses, etc.
+	- Using “TAR_rule_extraction.py” to get:
+		- A summary of the total number of rules for each of the outcome values (e.g. “Rapport_3”)
+		- The full rule sets for each model, with the rapport values, temporal sequence (e.g. “Tutee_Answer, Tutor_Praise, Tutee_Norm_Violation”), their confidence, support, number of uses, etc.
